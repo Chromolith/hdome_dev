@@ -57,7 +57,7 @@ The field is not parsed in any way, and it is stored as a string in the `Peptide
 > Deamidated(Q)@7  
 
 Data field identifier: **ptms**  
-This field denotes the modifications to the procedure made in the experiment.  
+This field denotes post translational modifications (hence "ptm") to the peptide sequence that have been detected by the mass spectrometer. 
 As with the `protein` and `names` field, this can have multiple elements delimited by ';'. Each one is stored as a separate instance of the `Ptm` entity inside the `description` field.   
 
 
@@ -75,7 +75,7 @@ This value is then stored in the `Ion` entity, in the `delta_mass` attribute as 
 > 4810.4985351563  
 
 Data field identifier: **precursor_mass**  
-This field may not contain multiple elements. It is converted into a float then rounded to 5 **digits** (digits! not decimal places.)  
+This field may not contain multiple elements. It is converted into a float then rounded to 5 **digits** (digits! not decimal places - edit from Nathan: I don't think this should be rounded to 5 digits, as wouldn't that lead to the first example being 1569.6? If so, that's not enough information. We really need it to show 4 decimal places ideally. Hope that makes sense. Perhaps I have it wrong with what you mean by digits?)  
 This value is then stored in the `IdEstimate` entity, in the `precursor_mass` attribute as a float.  
 
 
@@ -84,7 +84,7 @@ This value is then stored in the `IdEstimate` entity, in the `precursor_mass` at
 > 1203.632  
 
 Data field identifier: **mz**  
-This field may not contain multiple elements. It is converted into a float then rounded to 5 **digits** (digits! not decimal places.)  
+This field may not contain multiple elements. It is converted into a float then rounded to 5 **digits** (digits! not decimal places. edit from Nathan - Same consideration as above. I'd rather this was rounded to 4 decimal places, or at least 3.)  
 This value is then stored in the `Ion` entity, in the `mz` attribute as a float.  
 
 
